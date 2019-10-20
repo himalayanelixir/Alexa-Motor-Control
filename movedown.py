@@ -3,17 +3,21 @@ import time
 import RPi.GPIO as GPIO
 
 mode=GPIO.getmode()
+
+#GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
+GPIO.setup(9, GPIO.OUT)
+GPIO.setup(10, GPIO.OUT)
+GPIO.setup(11, GPIO.OUT)
 
-Active= 11
-Forward= 13
-Backward= 15
+GPIO.output(9,GPIO.HIGH)
+GPIO.output(10,GPIO.HIGH)
+GPIO.output(11,GPIO.LOW)
+time.sleep(30)
+GPIO.output(9,GPIO.LOW)
+GPIO.output(10,GPIO.LOW)
+GPIO.output(11,GPIO.LOW)
 
 
-sleeptime = 15
-
-
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(Active, GPIO.OUT)
-GPIO.setup(Forward, GPIO.OUT)
-GPIO.setup(Backward, GPIO.OUT)
+GPIO.cleanup()

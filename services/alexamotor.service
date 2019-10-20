@@ -1,0 +1,10 @@
+[Unit]
+Description=Python3 script that runs flask_ask app which moves motors based on alexa commands
+After=network.target
+
+[Service]
+User=pi
+ExecStart=python3 /home/pi/motor_control.py 
+
+[Install]
+WantedBy=multi-user.target
