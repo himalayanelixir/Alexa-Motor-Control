@@ -19,7 +19,7 @@ sudo nano /etc/systemd/system/alexamotor.service
 
 requirements to run 
 
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install rpi.gpio
 sudo apt-get install python3-pip
 sudo apt-get install autossh

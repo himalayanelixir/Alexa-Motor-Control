@@ -1,0 +1,10 @@
+[Unit]
+Description=ngrok tunnel service pointing to local port 5000
+After=network.target
+
+[Service]
+User=pi
+ExecStart=/home/pi/ngrok http 5000 -hostname=alexacouch.ngrok.io
+
+[Install]
+WantedBy=multi-user.target

@@ -11,17 +11,21 @@ ask = Ask(app, '/')
 def moveup():
   GPIO.output(9,GPIO.HIGH)
   GPIO.output(10,GPIO.HIGH)
+  GPIO.output(11,GPIO.LOW)
   time.sleep(30)
   GPIO.output(9,GPIO.LOW)
   GPIO.output(10,GPIO.LOW)
+  GPIO.output(11,GPIO.LOW)
   sys.exit()
 
 def movedown():
   GPIO.output(9,GPIO.HIGH)
   GPIO.output(10,GPIO.LOW)
+  GPIO.output(11,GPIO.HIGH)
   time.sleep(30)
   GPIO.output(9,GPIO.LOW)
   GPIO.output(10,GPIO.LOW)
+  GPIO.output(11,GPIO.LOW)
   sys.exit()
 
 @ask.intent('LedIntent')
