@@ -7,11 +7,11 @@ https://www.everythingcli.org/ssh-tunnelling-for-fun-and-profit-autossh/
 
 sudo apt-get update -y && sudo apt-get upgrade -y
 
-sudo apt-get install rpi.gpio
+sudo apt-get install rpi.gpio -y
 
-sudo apt-get install python3-pip
+sudo apt-get install python3-pip -y
 
-sudo apt-get install autossh
+# sudo apt-get install autossh 
 
 pip3 install flask
 
