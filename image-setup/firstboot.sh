@@ -15,5 +15,35 @@ sudo chsh -s /bin/zsh
 # install ohmyzsh for root and pi users
 sudo -u pi sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+
+# install drivers for inkyphat screen
+wget https://get.pimoroni.com/inky -P /home/pi
+# make downloaded script executable
+chmod +x /home/pi/inky
+# create script that uses expect to automate adafruit installation prompts
+cat <<EOT >/home/pi/script.exp
+#!/usr/bin/expect -f
+set timeout -1
+spawn ./inky
+match_max 100000
+expect -exact "Do you wish to continue? \[y/N\] "
+send -- "y\r"
+expect -exact "Do you wish to perform a full install? \[y/N\] "
+send -- "y\r"
+expect eof
+EOT
+# make script executable 
+chmod +x /home/pi/script.exp
+# run automation script which installs the adafruit screen drivers
+chown pi /home/pi/script.exp
+chown pi /home/pi/inky
+su -c '/home/pi/script.exp' - pi
+# remove the screen installation script
+rm /home/pi/inky
+# remove expect automation script
+rm /home/pi/script.exp
+
+
 # tell pi to restart after one minute. This is needed for the ssh changes to work and for the adafruit screen drivers
 sudo shutdown -r 1
