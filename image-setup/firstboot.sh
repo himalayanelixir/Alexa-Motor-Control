@@ -44,6 +44,16 @@ rm /home/pi/inky
 # remove expect automation script
 rm /home/pi/script.exp
 
+# download the display program from github
+wget -P /home/pi https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/display.py
+# make display program executable
+sudo chmod +x /home/pi/display.py
+# add display program to PATH
+echo "export PATH=\"/home/pi:$PATH\"" >>/home/pi/.zshrc
+# make pi user owner of the file we downloaded
+chown pi /home/pi/display.py
+# print success message
+python3 /home/pi/display.py $(date +"%T")   
 
 # tell pi to restart after one minute. This is needed for the ssh changes to work and for the adafruit screen drivers
 sudo shutdown -r 1
