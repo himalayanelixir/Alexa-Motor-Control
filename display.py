@@ -4,12 +4,12 @@
 """This script takes in one agrgument and then displays it on a InkyPhat
 display"""
 import sys
-from PIL import Image, ImageFont, ImageDraw # pylint: disable=import-error
-from font_fredoka_one import FredokaOne # pylint: disable=import-error
-from inky import InkyPHAT # pylint: disable=import-error
+from PIL import Image, ImageFont, ImageDraw  # pylint: disable=import-error
+from font_fredoka_one import FredokaOne  # pylint: disable=import-error
+from inky import InkyPHAT  # pylint: disable=import-error
 
 
-def main():
+def print_text(text):
     """Displays text that is passed as an argument"""
     inky_display = InkyPHAT("yellow")
     inky_display.set_border(inky_display.WHITE)
@@ -17,7 +17,7 @@ def main():
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype(FredokaOne, 30)
     try:
-        message = str(sys.argv[1])
+        message = text
     except IndexError:
         message = "No Message"
     width, height = font.getsize(message)
@@ -29,4 +29,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    print_text(str(sys.argv[1]))
