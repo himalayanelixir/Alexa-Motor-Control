@@ -17,6 +17,10 @@ sudo -u pi sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 
+# install font for display
+pip3 install font_fredoka_one
+
+
 # install drivers for inkyphat screen
 wget https://get.pimoroni.com/inky -P /home/pi
 # make downloaded script executable
@@ -30,7 +34,7 @@ match_max 100000
 expect -exact "Do you wish to continue? \[y/N\] "
 send -- "y\r"
 expect -exact "Do you wish to perform a full install? \[y/N\] "
-send -- "y\r"
+send -- "N\r"
 expect eof
 EOT
 # make script executable 
@@ -44,6 +48,7 @@ rm /home/pi/inky
 # remove expect automation script
 rm /home/pi/script.exp
 
+
 # download the display program from github
 wget -P /home/pi https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/display.py
 # make display program executable
@@ -54,6 +59,7 @@ echo "export PATH=\"/home/pi:$PATH\"" >>/home/pi/.zshrc
 chown pi /home/pi/display.py
 # print success message
 python3 /home/pi/display.py $(date +"%T")   
+
 
 # tell pi to restart after one minute. This is needed for the ssh changes to work and for the adafruit screen drivers
 sudo shutdown -r 1

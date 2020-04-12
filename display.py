@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Copyright 2020 Harlen Bains
 # linted using pylint
 # formatted using black
@@ -16,10 +17,7 @@ def print_text(text):
     img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype(FredokaOne, 30)
-    try:
-        message = text
-    except IndexError:
-        message = "No Message"
+    message = text
     width, height = font.getsize(message)
     x_axis = (inky_display.WIDTH / 2) - (width / 2)
     y_axis = (inky_display.HEIGHT / 2) - (height / 2)
@@ -29,4 +27,7 @@ def print_text(text):
 
 
 if __name__ == "__main__":
-    print_text(str(sys.argv[1]))
+    try:
+        print_text(str(sys.argv[1]))
+    except IndexError:
+        print_text("No Message")
