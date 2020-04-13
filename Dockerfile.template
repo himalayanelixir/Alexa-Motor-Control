@@ -1,0 +1,47 @@
+# base-image for node on any machine using a template variable,
+# see more about dockerfile templates here: https://www.balena.io/docs/learn/develop/dockerfile/#dockerfile-templates
+# and about balena base images here: https://www.balena.io/docs/reference/base-images/base-images/
+# FROM balenalib/%%BALENA_MACHINE_NAME%%-node:10-stretch-run
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-node:10-run
+# use `install_packages` if you need to install dependencies,
+# for instance if you need git, just uncomment the line below.
+# RUN install_packages git
+
+# Defines our working directory in container
+WORKDIR /usr/src/app
+
+RUN apt-get update -yq && \
+    apt-get install -yq --no-install-recommends \
+    apt-utils \
+    expect \
+    wget \
+    python3-pip -y
+RUN pip3 install flask==0.12.1 flask-ask requests font_fredoka_one
+RUN wget -q https://get.pimoroni.com/inky && \
+    chmod +x inky && \
+    adduser --disabled-password --gecos '' admin && \
+    adduser admin sudo && \
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+COPY script.exp main.py ./
+USER admin
+RUN expect script.exp
+USER root
+
+# download display.py to run Inky pHAT
+RUN wget -q https://raw.githubusercontent.com/himalayanelixir/pi-inky-phat/master/display.py
+
+# clean up installed programs and files
+RUN rm -rf /var/lib/apt/lists/* && \
+    rm script.exp && \
+    rm inky && \
+    apt-get remove -yq \
+    apt-utils \
+    expect \
+    wget \
+    python3-pip -y
+
+# Enable udevd so that plugged dynamic hardware devices show up in our container.
+ENV UDEV=1
+
+# server.js will run when container starts up on the device
+CMD ["python3","main.py"]
