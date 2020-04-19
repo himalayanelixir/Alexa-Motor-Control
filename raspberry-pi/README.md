@@ -1,17 +1,12 @@
 Links that are useful or might become useful: 
 
 https://scribles.net/controlling-leds-on-raspberry-pi-using-voice-with-amazon-echo/
-https://www.pubnub.com/blog/alexa-voice-controlled-raspberry-pi-using-lambda-and-pubnub/
-https://gist.github.com/kbeflo/154d531ae5f5cb2766be3d8a15626342
-https://www.everythingcli.org/ssh-tunnelling-for-fun-and-profit-autossh/
 
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 sudo apt-get install rpi.gpio -y
 
 sudo apt-get install python3-pip -y
-
-# sudo apt-get install autossh 
 
 pip3 install flask
 
@@ -26,9 +21,6 @@ unzip /path/to/ngrok.zip
 ./ngrok authtoken <YOUR_AUTH_TOKEN>
 
 ./ngrok http 80 (other port)
-
-
-
 
 sudo nano /etc/systemd/system/autossh.service
 
