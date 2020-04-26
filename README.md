@@ -26,11 +26,11 @@ This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, a
 
 ### <a name='Alexa'></a>Alexa
 
-Use skills JSON in ```alexa/``` to create skills for your use case. Just modify the endpoint to one from ngrok and deploy your skill. 
+Use skills JSON in ```alexa/``` to create skills for your usecase. Define endpoints
 
 ### <a name='ngrok'></a>ngrok
 
-You will need the pro subscription. Follow the instructions on the website to setup the endpoints.
+You will need to subscribe to get reserved endpoint addresses. Follow the instructions on the website to setup the endpoints.
 
 ### <a name='RaspberryPi'></a>Raspberry Pi
 Extremely manual process was in a rush when I initially wrote this up. Can be put into a simple bash script to run on firstboot. Sorry.
@@ -40,7 +40,6 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install rpi.gpio -y
 sudo apt-get install python3-pip -y
 pip3 install flask
-# flask-ask isn't maintained any more :(
 pip3 install flask_ask
 pip3 install 'cryptography<2.2'
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
@@ -48,7 +47,7 @@ unzip /path/to/ngrok.zip
 ./ngrok authtoken <YOUR_AUTH_TOKEN>
 # change port depending on what you setup flask-ask with
 ./ngrok http 80 (other port)
-# create services (I just copied and pasted from raspberry-pi/services/)
+# create services (copied and pasted from raspberry-pi/services/)
 sudo nano /etc/systemd/system/alexamotor.service
 sudo nano /etc/systemd/system/ngrok.service
 sudo systemctl start alexamotor.service
