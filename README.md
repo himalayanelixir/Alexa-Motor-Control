@@ -1,21 +1,38 @@
-# Summary
+<!-- vscode-markdown-toc -->
+* [Summary](#Summary)
+* [Setup](#Setup)
+	* [Alexa](#Alexa)
+	* [ngrok](#ngrok)
+	* [Raspberry Pi](#RaspberryPi)
+	* [Motor Controller](#MotorController)
+* [Future Improvements](#FutureImprovements)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+# Alexa Pi Motor Control
+
+## <a name='Summary'></a>Summary
 
 This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, and a motor controller. With a few small modifications you could control anything using GPIO on the Raspberry Pi.
 
 ![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.png)
 <p align="center"><i>Entire system</i></p>
 
-# Setup
+## <a name='Setup'></a>Setup
 
-## Alexa
+### <a name='Alexa'></a>Alexa
 
 Use skills JSON in ```alexa/``` to create skills for your use case. Just modify the endpoint to one from ngrok and deploy your skill. 
 
-## ngrok
+### <a name='ngrok'></a>ngrok
 
 You will need the pro subscription. Follow the instructions on the website to setup the endpoints.
 
-## Raspberry Pi
+### <a name='RaspberryPi'></a>Raspberry Pi
 Extremely manual process was in a rush when I initially wrote this up. Can be put into a simple bash script to run on firstboot. Sorry.
 
 ```bash
@@ -46,12 +63,12 @@ wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control
 sudo chmod +x /home/pi/motor-control.py
 ```
 
-## Motor Controller
+### <a name='MotorController'></a>Motor Controller
 
 To control the furniture you will just need a controller to communicate with from the Raspberry Pi to the motor. For I used a simple one from Pololu. Just modify the GPIO pins that are turned on and off in ```raspberry-pi/motor-control.py```.
 
 
-# Future Improvements
+## <a name='FutureImprovements'></a>Future Improvements
 
 Use: <https://www.balena.io/blog/use-a-raspberry-pi-to-communicate-with-amazon-aws-iot/>
 
