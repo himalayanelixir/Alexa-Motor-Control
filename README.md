@@ -1,3 +1,4 @@
+# Alexa Pi Motor Control
 <!-- vscode-markdown-toc -->
 * [Summary](#Summary)
 * [Setup](#Setup)
@@ -12,8 +13,6 @@
 	autoSave=true
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
-
-# Alexa Pi Motor Control
 
 ## <a name='Summary'></a>Summary
 
