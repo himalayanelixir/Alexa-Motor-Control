@@ -38,9 +38,8 @@ Extremely manual process was in a rush when I initially wrote this up. Can be pu
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install rpi.gpio -y
 sudo apt-get install python3-pip -y
-pip3 install flask
-pip3 install flask_ask
-pip3 install 'cryptography<2.2'
+wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/raspberry-pi/requirements.txt /home/pi/
+pip3 install -r /home/pi/requirements.txt
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
 unzip /path/to/ngrok.zip
 ./ngrok authtoken <YOUR_AUTH_TOKEN>
@@ -56,8 +55,7 @@ sudo systemctl enable ngrok.service
 sudo systemctl daemon-reload
 # make sure services are enabled
 sudo systemctl list-unit-files | grep enabled
-wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/raspberry-pi/motor_control.py
-/home/pi/
+wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/raspberry-pi/motor_control.py /home/pi/
 sudo chmod +x /home/pi/motor-control.py
 ```
 
