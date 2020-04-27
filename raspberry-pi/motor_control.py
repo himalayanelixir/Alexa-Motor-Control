@@ -1,77 +1,95 @@
-from flask import Flask
-from flask_ask import Ask, statement
-import RPi.GPIO as GPIO
+#!/usr/bin/python3
+# Copyright 2020 Harlen Bains
+# linted using pylint
+# formatted using black
+"""This script runs on a Raspberry Pi and controls a Pololu G2 High-Power Motor
+Driver 24v13 using the Raspberry Pi's GPIO pins.
+"""
+
+import sys
 import time
 from threading import Thread
-import sys
-
-app = Flask(__name__)
-ask = Ask(app, "/")
+from flask import Flask  # pylint: disable=import-error
+from flask_ask import Ask, statement  # pylint: disable=import-error
+import RPi.GPIO as GPIO  # pylint: disable=import-error
 
 
 def moveup():
-    global currently_running
-    currently_running = 1
-    GPIO.output(9, GPIO.HIGH)
-    GPIO.output(10, GPIO.HIGH)
-    GPIO.output(11, GPIO.HIGH)
+    """Set GPIO pins to tell the motor driver to move the furniture up wait for
+    30 seconds and then and then stop.
+    """
+    global CURRENTLY_RUNNING
+    CURRENTLY_RUNNING = 1
+    GPIO.output(PINS[0], GPIO.HIGH)
+    GPIO.output(PINS[1], GPIO.HIGH)
+    GPIO.output(PINS[2], GPIO.HIGH)
     time.sleep(30)
-    GPIO.output(9, GPIO.LOW)
-    GPIO.output(10, GPIO.LOW)
-    GPIO.output(11, GPIO.LOW)
-    currently_running = 0
+    GPIO.output(PINS[0], GPIO.LOW)
+    GPIO.output(PINS[1], GPIO.LOW)
+    GPIO.output(PINS[2], GPIO.LOW)
+    CURRENTLY_RUNNING = 0
     sys.exit()
 
 
 def movedown():
-    global currently_running
-    currently_running = 1
-    GPIO.output(9, GPIO.HIGH)
-    GPIO.output(10, GPIO.LOW)
-    GPIO.output(11, GPIO.HIGH)
+    """Set GPIO pins to tell the motor driver to move the furniture down wait
+    for 30 seconds and then and then stop.
+    """
+    global CURRENTLY_RUNNING
+    CURRENTLY_RUNNING = 1
+    GPIO.output(PINS[0], GPIO.HIGH)
+    GPIO.output(PINS[1], GPIO.LOW)
+    GPIO.output(PINS[2], GPIO.HIGH)
     time.sleep(30)
-    GPIO.output(9, GPIO.LOW)
-    GPIO.output(10, GPIO.LOW)
-    GPIO.output(11, GPIO.LOW)
-    currently_running = 0
+    GPIO.output(PINS[0], GPIO.LOW)
+    GPIO.output(PINS[1], GPIO.LOW)
+    GPIO.output(PINS[2], GPIO.LOW)
+    CURRENTLY_RUNNING = 0
     sys.exit()
 
 
-@ask.intent("LedIntent")
+@ASK.intent("LedIntent")
 def led(direction):
-    # if color.lower() not in pins.keys():
-    #  return statement("I don't have {} light".format(color))
+    """Get message from Alexa service with the direction we want to move the
+    furniture and execute the command. If the furniture is currently moving or
+    invalid command is sent send error statement back to Alexa.
+
+    Args:
+      direction: Direction we want to move the furniture
+
+    Returns:
+      Returns a response statement according to the state of the furniture
+    """
     print("Direction:", direction)
-    if currently_running == 0:
+    if CURRENTLY_RUNNING == 0:
         if direction == "up":
             thread = Thread(target=moveup)
             thread.start()
-            return statement("The couch is now moving {} ".format(direction))
-
+            response = "The couch is now moving {} ".format(direction)
         elif direction == "down":
             thread = Thread(target=movedown)
             thread.start()
-            return statement("The couch is now moving {} ".format(direction))
-
+            response = "The couch is now moving {} ".format(direction)
         else:
-            GPIO.output(9, GPIO.LOW)
-            GPIO.output(10, GPIO.LOW)
-            GPIO.output(11, GPIO.LOW)
-            return statement("Invalid Direction")
+            GPIO.output(PINS[0], GPIO.LOW)
+            GPIO.output(PINS[1], GPIO.LOW)
+            GPIO.output(PINS[2], GPIO.LOW)
+            response = "Invalid Direction"
     else:
-        return statement(
-            "The couch is currently moving please try again in a few moments"
-        )
+        response = "The couch is currently moving please try again in a few moments"
+    return statement(response)
 
+
+APP = Flask(__name__)
+ASK = Ask(APP, "/")
+CURRENTLY_RUNNING = 0
+GPIO.setmode(GPIO.BCM)
+PINS = (9, 10, 11)
 
 if __name__ == "__main__":
-    currently_running = 0
     try:
-        GPIO.setmode(GPIO.BCM)
-        pins = {9, 10, 11}
-        for pin in pins:
+        for pin in PINS:
             GPIO.setup(pin, GPIO.OUT)
-        app.run(debug=True)
+        APP.run(debug=True)
     finally:
         GPIO.cleanup()
-

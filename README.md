@@ -5,7 +5,7 @@
 	* [Alexa](#Alexa)
 	* [ngrok](#ngrok)
 	* [Raspberry Pi](#RaspberryPi)
-	* [Motor Controller](#MotorController)
+	* [Motor Driver](#MotorDriver)
 * [Future Improvements](#FutureImprovements)
 
 <!-- vscode-markdown-toc-config
@@ -16,7 +16,7 @@
 
 ## <a name='Summary'></a>Summary
 
-This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, and a motor controller. With a few small modifications you could control anything using GPIO on the Raspberry Pi.
+This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, and a motor driver. With a few small modifications you could control anything using GPIO on the Raspberry Pi.
 
 ![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.png)
 <p align="center"><i>Entire system</i></p>
@@ -25,7 +25,7 @@ This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, a
 
 ### <a name='Alexa'></a>Alexa
 
-Use skills JSON in ```alexa/``` to create skills for your usecase. Define endpoints
+Use skills JSON in ```alexa/``` to create skills for your use case. Define endpoints
 
 ### <a name='ngrok'></a>ngrok
 
@@ -61,10 +61,10 @@ wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control
 sudo chmod +x /home/pi/motor-control.py
 ```
 
-### <a name='MotorController'></a>Motor Controller
+### <a name='MotorDriver'></a>Motor Driver
 
-To control the furniture you will just need a controller to communicate with from the Raspberry Pi to the motor. For I used a simple one from Pololu. Just modify the GPIO pins that are turned on and off in ```raspberry-pi/motor-control.py```.
-
+To control the furniture you will just need a driver to communicate with from the Raspberry Pi to the motor. For I used a simple Pololu G2 High-Power Motor
+Driver 24v13. Just modify the GPIO pins that are turned on and off in ```raspberry-pi/motor-control.py``` to use a different one.
 
 ## <a name='FutureImprovements'></a>Future Improvements
 
