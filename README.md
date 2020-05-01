@@ -6,7 +6,7 @@
 	* [ngrok](#ngrok)
 	* [Raspberry Pi](#RaspberryPi)
 	* [Motor Driver](#MotorDriver)
-* [Bed Example](#BedExample)
+* [Example](#Example)
 * [Future Improvements](#FutureImprovements)
 
 <!-- vscode-markdown-toc-config
@@ -65,7 +65,7 @@ sudo chmod +x /home/pi/motor-control.py
 To control the furniture you will just need a driver to communicate with from the Raspberry Pi to the motor. For I used a simple Pololu G2 High-Power Motor
 Driver 24v13. Just modify the GPIO pins that are turned on and off in ```raspberry-pi/motor-control.py``` to use a different one.
 
-## <a name='BedExample'></a>Example
+## <a name='Example'></a>Example
 
 Got this code working with a convertible bed. The full video can be found here: <https://youtu.be/vljLdq9bu4k>.
 
