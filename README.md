@@ -6,6 +6,7 @@
 	* [ngrok](#ngrok)
 	* [Raspberry Pi](#RaspberryPi)
 	* [Motor Driver](#MotorDriver)
+* [Bed Example](#BedExample)
 * [Future Improvements](#FutureImprovements)
 
 <!-- vscode-markdown-toc-config
@@ -20,12 +21,6 @@ This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, a
 
 ![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.png)
 <p align="center"><i>Entire system</i></p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.gif">
-</p>
-
-<p align="center"><i>Full Video: <a href="url">https://youtu.be/vljLdq9bu4k</a></i></p>
 
 ## <a name='Setup'></a>Setup
 
@@ -69,6 +64,14 @@ sudo chmod +x /home/pi/motor-control.py
 
 To control the furniture you will just need a driver to communicate with from the Raspberry Pi to the motor. For I used a simple Pololu G2 High-Power Motor
 Driver 24v13. Just modify the GPIO pins that are turned on and off in ```raspberry-pi/motor-control.py``` to use a different one.
+
+## <a name='BedExample'></a>Example
+
+Got this code working with a convertible bed. The full video can be found here: <https://youtu.be/vljLdq9bu4k>.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.gif">
+</p>
 
 ## <a name='FutureImprovements'></a>Future Improvements
 
