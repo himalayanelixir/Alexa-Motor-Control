@@ -21,6 +21,12 @@ This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, a
 ![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.png)
 <p align="center"><i>Entire system</i></p>
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.gif">
+</p>
+
+<p align="center"><i>Full Video: <a href="url">https://youtu.be/vljLdq9bu4k</a></i></p>
+
 ## <a name='Setup'></a>Setup
 
 ### <a name='Alexa'></a>Alexa
