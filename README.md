@@ -1,4 +1,4 @@
-# Alexa Pi Motor Control
+# Alexa Pi Furniture Control
 <!-- vscode-markdown-toc -->
 * [Summary](#Summary)
 * [Setup](#Setup)
