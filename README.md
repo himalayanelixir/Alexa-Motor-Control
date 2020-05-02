@@ -19,7 +19,7 @@
 
 This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, and a motor driver. With a few small modifications you could control anything using GPIO on the Raspberry Pi.
 
-![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-furniture-control.png)
+![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-furniture-control/master/docs/alexa-pi-furniture-control.png)
 <p align="center"><i>Entire system</i></p>
 
 ## <a name='Setup'></a>Setup
@@ -39,7 +39,7 @@ Extremely manual process was in a rush when I initially wrote this up. Can be pu
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install rpi.gpio -y
 sudo apt-get install python3-pip -y
-wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/raspberry-pi/requirements.txt /home/pi/
+wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-furniture-control/master/raspberry-pi/requirements.txt /home/pi/
 pip3 install -r /home/pi/requirements.txt
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
 unzip /path/to/ngrok.zip
@@ -56,7 +56,7 @@ sudo systemctl enable ngrok.service
 sudo systemctl daemon-reload
 # make sure services are enabled
 sudo systemctl list-unit-files | grep enabled
-wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/raspberry-pi/motor_control.py /home/pi/
+wget -q https://raw.githubusercontent.com/himalayanelixir/alexa-pi-furniture-control/master/raspberry-pi/motor_control.py /home/pi/
 sudo chmod +x /home/pi/motor-control.py
 ```
 
@@ -70,7 +70,7 @@ Driver 24v13. Just modify the GPIO pins that are turned on and off in ```raspber
 Got this code working with a convertible bed. The full video can be found here: <https://youtu.be/vljLdq9bu4k>.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-furniture-control/master/docs/alexa-pi-motor-control.gif">
+  <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-furniture-control/master/docs/alexa-pi-furniture-control.gif">
 </p>
 
 ## <a name='FutureImprovements'></a>Future Improvements
