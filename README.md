@@ -67,7 +67,7 @@ Driver 24v13. Just modify the GPIO pins that are turned on and off in ```raspber
 
 ## <a name='Example'></a>Example
 
-Got this code working with a convertible bed. The full video can be found here: <https://youtu.be/vljLdq9bu4k>.
+Got this code working with a convertible bed. The full video can be found here: <a href="<https://youtu.be/vljLdq9bu4k" target="_blank"><https://youtu.be/vljLdq9bu4k</a>.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.gif">
