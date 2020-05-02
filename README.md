@@ -26,11 +26,13 @@ This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, a
 
 ### <a name='Alexa'></a>Alexa
 
-Use skills JSON in ```alexa/``` to create skills for your use case. Define endpoints
+Use skills JSON in ```alexa/``` to create skills for your use case. Endpoints should be the ones from ngrok.
 
 ### <a name='ngrok'></a>ngrok
 
-You will need to subscribe to get reserved endpoint addresses. Follow the instructions on the website to setup the endpoints.
+Use ngrok to serve as a message passer between the Alexa service and the Raspberry Pi. We need it because the Raspberry Pi doesn't have a static address we can use to find it.
+
+You will need to subscribe to get reserved endpoint addresses. Follow the instructions on the website to setup the endpoints, and to connect it to the Raspberry Pi.
 
 ### <a name='RaspberryPi'></a>Raspberry Pi
 Extremely manual process was in a rush when I initially wrote this up. Can be put into a simple bash script to run on firstboot. Sorry.
