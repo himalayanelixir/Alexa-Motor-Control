@@ -19,7 +19,7 @@
 
 This demo moves convertible furniture up and down using Alexa, a Raspberry Pi, and a motor driver. With a few small modifications you could control anything using GPIO on the Raspberry Pi.
 
-![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.png)
+![Diagram](https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-furniture-control.png)
 <p align="center"><i>Entire system</i></p>
 
 ## <a name='Setup'></a>Setup
@@ -70,7 +70,7 @@ Driver 24v13. Just modify the GPIO pins that are turned on and off in ```raspber
 Got this code working with a convertible bed. The full video can be found here: <https://youtu.be/vljLdq9bu4k>.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-motor-control/master/docs/alexa-pi-motor-control.gif">
+  <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-furniture-control/master/docs/alexa-pi-motor-control.gif">
 </p>
 
 ## <a name='FutureImprovements'></a>Future Improvements
