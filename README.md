@@ -35,7 +35,7 @@ Use ngrok to serve as a message passer between the Alexa service and the Raspber
 You will need to subscribe to get reserved endpoint addresses. Follow the instructions on the website to setup the endpoints, and to connect it to the Raspberry Pi.
 
 ### <a name='RaspberryPi'></a>Raspberry Pi
-Extremely manual process was in a rush when I initially wrote this up. Can be put into a simple bash script to run on firstboot. Sorry.
+This is an extremely manual process because I was in a rush when I initially wrote this up. It can be put into a simple bash script to run on firstboot. Sorry.
 
 ```bash
 sudo apt-get update -y && sudo apt-get upgrade -y
@@ -64,7 +64,7 @@ sudo chmod +x /home/pi/motor-control.py
 
 ### <a name='MotorDriver'></a>Motor Driver
 
-To control the furniture you will just need a driver to communicate with from the Raspberry Pi to the motor. For I used a simple Pololu G2 High-Power Motor
+To control the furniture you will just need a driver to communicate with from the Raspberry Pi to the motor. I used a simple Pololu G2 High-Power Motor
 Driver 24v13. Just modify the GPIO pins that are turned on and off in ```raspberry-pi/motor-control.py``` to use a different one.
 
 ## <a name='Example'></a>Example
