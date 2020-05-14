@@ -29,7 +29,7 @@ Use skills JSON in ```alexa/``` to create skills for your use case. Endpoints sh
 
 ### <a name='ngrok'></a>ngrok
 
-Use ngrok to serve as a message passer between the Alexa service and the Raspberry Pi. We need it because the Raspberry Pi doesn't have a static address we can use to find it.
+Use ngrok to serve as a message passer between the Alexa service and the Raspberry Pi.
 
 You will need to subscribe to get reserved endpoint addresses. Follow the instructions on the website to setup the endpoints, and to connect it to the Raspberry Pi.
 
