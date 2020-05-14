@@ -7,7 +7,6 @@
 	* [Raspberry Pi](#RaspberryPi)
 	* [Motor Driver](#MotorDriver)
 * [Example](#Example)
-* [Future Improvements](#FutureImprovements)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
@@ -74,9 +73,3 @@ Got this code working with a convertible bed. The full video can be found here: 
 <p align="center">
   <img src="https://raw.githubusercontent.com/himalayanelixir/alexa-pi-furniture-control/master/docs/alexa-pi-furniture-control.gif">
 </p>
-
-## <a name='FutureImprovements'></a>Future Improvements
-
-Use: <https://www.balena.io/blog/use-a-raspberry-pi-to-communicate-with-amazon-aws-iot/>
-
-Use: <https://github.com/aws-samples/smart-home-iot-alexa-workshop>
